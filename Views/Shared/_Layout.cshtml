@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/scripts/jquery-3.2.1.js")
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+
+</head>
+<body>
+    <div class="div_body">
+        <div class="main_header_block_all">
+            <div class="main_header_block_lvl_1">
+                <div class="main_header_block_lvl_2">
+                    <div class="main_header_one_block div_inline_block">
+                        <div class="main_header_link_1">@Html.ActionLink("Сериалы", "", "Home", new { }, new { @class = "link_standart_for_div" })</div>
+
+                        <div class="main_header_add_button">
+                            @Html.ActionLink("+", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })
+                        </div>
+                    </div>
+                    <div class="main_header_one_block div_inline_block">
+                        <div class="main_header_link_1">@Html.ActionLink("Фильмы", "", "Home", new { }, new { @class = "link_standart_for_div" })</div>
+
+                        <div class="main_header_add_button">@Html.ActionLink("+", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })</div>
+                    </div>
+                    <div class="main_header_one_block div_inline_block">
+                        <div class="main_header_link_1">@Html.ActionLink("Книги", "", "Home", new { }, new { @class = "link_standart_for_div" })</div>
+
+                        <div class="main_header_add_button">@Html.ActionLink("+", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })</div>
+                    </div>
+                </div>
+
+                <p class="main_header_hello">Добро пожаловать</p>
+            </div>
+        </div>
+        <div class="">@RenderBody()</div>
+        
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+        </footer>
+    </div>
+        <div class="right_block_link_line"><div class="right_block_link_l">
+    <div class="right_block_one_link">
+        <a href="https://vk.com/zsuzitor" class="link_standart_for_circle_60_div">VK</a>
+
+    </div>
+    <div class="right_block_one_link">
+        <a href="https://github.com/zsuzitor" class="link_standart_for_circle_60_div">GH</a>
+
+    </div>
+    <div class="right_block_one_link">
+        <a href="https://vk.com/zsuzitor" class="link_standart_for_circle_60_div">In</a>
+
+    </div>
+    <div class="right_block_one_link">
+        <a href="https://vk.com/zsuzitor" class="link_standart_for_circle_60_div">Im</a>
+
+    </div>
+</div><div class="right_block_link_not_line">
+
+</div></div>      
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

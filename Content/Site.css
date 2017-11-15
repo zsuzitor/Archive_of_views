@@ -1,0 +1,195 @@
+﻿body {
+    
+    padding-bottom: 20px;
+    /*min-width:960px;*/
+
+    padding-top:50px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.link_standart_for_circle_60_div {
+    display: block; /* Ссылка как блочный элемент */
+    text-align: center; /* Выравнивание по центру */
+    height: 100%; /* Высота на весь слой */
+    border-radius: 60px;
+    text-decoration: none;
+    /*vertical-align: middle; padding: -1em 0;*/
+}
+.link_standart_for_circle_60_div:hover {
+    text-decoration: none;
+}.link_standart_for_div {
+    display: block; /* Ссылка как блочный элемент */
+    text-align: center; /* Выравнивание по центру */
+    height: 100%; /* Высота на весь слой */
+    color: black; /* Цвет ссылки */
+}
+
+.link_standart_for_circle_30_div {
+    display: block; /* Ссылка как блочный элемент */
+    text-align: center; /* Выравнивание по центру */
+    height: 100%; /* Высота на весь слой */
+    border-radius: 30px;
+}
+
+.link_standart_for_circle_50_div {
+    display: block; /* Ссылка как блочный элемент */
+    text-align: center; /* Выравнивание по центру */
+    height: 100%; /* Высота на весь слой */
+    border-radius: 50px;
+}
+
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+}
+
+ul {
+    margin-left: 0; /* Отступ слева в браузере IE и Opera */
+    padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
+
+.text-box {
+    line-height: 30px;
+    height: 30px;
+    font-size: 14pt;
+    width: 100%;
+}
+
+div.for_separation {
+}
+
+div.div_inline_block {
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.div_color_white {
+    background-color: white;
+}
+div.div_body {
+    width: 70%;
+    margin-left: 15%;
+}div.main_header_one_block {
+    width: 25%;
+    margin-left: 7%;
+    height: 80%;
+}
+div.main_header_block_all {
+    height: 300px;
+    position: fixed;
+    width: 70%;
+    z-index: 100;
+    margin-top: -300px;
+    background-color: aliceblue;
+    transition: 2s;
+}
+    div.main_header_block_all:hover {
+        margin-top:-40px;
+
+    }
+div.main_header_block_lvl_2{
+    height:260px;
+}
+.main_header_hello{
+    text-align:center;
+    font-size:25pt;
+    color:black;
+}
+div.main_header_link_1 {
+    height:30px;
+    font-size: 25pt;
+    color: black;
+}
+div.main_header_add_button {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    transition: 3s;
+    font-size: 30pt;
+    color: black;
+    border: 1px solid black;
+    border-radius: 60px;
+    margin: auto;
+    margin-top: 20px;
+}
+    div.main_header_add_button:hover {
+        transform: rotate(200deg);
+    }
+
+
+
+
+
+
+
+
+
+    /**/
+
+div.right_block_link_line {
+    position: fixed;
+
+    height: 2000px;
+    width: 100px;
+    margin-left: 94%;
+    top:0;
+    
+   
+    
+}
+div.right_block_link_not_line {
+    width: 60px;
+    z-index: 100;
+    background-color: black;
+    height:100%;
+    position:absolute;
+    margin-left:30px;
+}div.right_block_one_link {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    font-size: 30pt;
+    color: black;
+    border: 2px solid black;
+    border-radius: 60px;
+   
+    transition:2s;
+    
+}
+    div.right_block_one_link:hover {
+        margin-left: -30px;
+        transition: 2s;
+    }
+div.right_block_link_l {
+    position: absolute;
+    margin-top:300px;
+}
+
+div.adasd{
+    height:1000px;
+}
