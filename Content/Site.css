@@ -92,8 +92,12 @@ div.div_color_white {
     background-color: white;
 }
 div.div_body {
+    position:relative;
     width: 70%;
     margin-left: 15%;
+    min-height:400px;
+    z-index:3;
+    background-color:white;
 }div.main_header_one_block {
     width: 25%;
     margin-left: 7%;
@@ -104,12 +108,12 @@ div.main_header_block_all {
     position: fixed;
     width: 70%;
     z-index: 100;
-    margin-top: -300px;
+    margin-top: -330px;
     background-color: aliceblue;
     transition: 2s;
 }
     div.main_header_block_all:hover {
-        margin-top:-40px;
+        margin-top:-60px;
 
     }
 div.main_header_block_lvl_2{
@@ -132,26 +136,59 @@ div.main_header_add_button {
     transition: 3s;
     font-size: 30pt;
     color: black;
-    border: 1px solid black;
+    /* border: 3px solid black;*/
     border-radius: 60px;
     margin: auto;
     margin-top: 20px;
+    background-image: url(/Content/images/plus.PNG);
+    background-size: 100% 100%;
 }
+
     div.main_header_add_button:hover {
-        transform: rotate(200deg);
+        transform: rotate(360deg);
     }
+div.main_header_edit_button {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    transition: 3s;
+    font-size: 30pt;
+    color: black;
+    /* border: 3px solid black;*/
+    border-radius: 60px;
+    margin: auto;
+    margin-top: 20px;
+    background-image: url(/Content/images/edit.PNG);
+    background-size: 100% 100%;
+}
 
+div.main_header_edit_button:hover {
+    transform: rotate(-360deg);
+}
+div.right_block_link_l {
+    position: fixed;
+    left: 12%;
+    top: 200px;
+    z-index: 1;
+}
+div.right_block_one_link {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    font-size: 28pt;
+    color: black;
+    border: 2px solid black;
+    border-radius: 60px;
+    transition: 2s;
+    z-index: 1;
 
-
-
-
-
-
-
-
-    /**/
-
-div.right_block_link_line {
+}
+    div.right_block_one_link:hover {
+        margin-left: -30px;
+        transition: 2s;
+        background-color:green;
+    }
+/*div.right_block_link_line {
     position: fixed;
 
     height: 2000px;
@@ -192,4 +229,5 @@ div.right_block_link_l {
 
 div.adasd{
     height:1000px;
-}
+}*/
+

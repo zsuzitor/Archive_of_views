@@ -13,32 +13,9 @@
 </head>
 <body>
     <div class="div_body">
-        <div class="main_header_block_all">
-            <div class="main_header_block_lvl_1">
-                <div class="main_header_block_lvl_2">
-                    <div class="main_header_one_block div_inline_block">
-                        <div class="main_header_link_1">@Html.ActionLink("Сериалы", "", "Home", new { }, new { @class = "link_standart_for_div" })</div>
-
-                        <div class="main_header_add_button">
-                            @Html.ActionLink("+", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })
-                        </div>
-                    </div>
-                    <div class="main_header_one_block div_inline_block">
-                        <div class="main_header_link_1">@Html.ActionLink("Фильмы", "", "Home", new { }, new { @class = "link_standart_for_div" })</div>
-
-                        <div class="main_header_add_button">@Html.ActionLink("+", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })</div>
-                    </div>
-                    <div class="main_header_one_block div_inline_block">
-                        <div class="main_header_link_1">@Html.ActionLink("Книги", "", "Home", new { }, new { @class = "link_standart_for_div" })</div>
-
-                        <div class="main_header_add_button">@Html.ActionLink("+", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })</div>
-                    </div>
-                </div>
-
-                <p class="main_header_hello">Добро пожаловать</p>
-            </div>
-        </div>
+        @Html.Action("Main_header","Home")
         <div class="">@RenderBody()</div>
+        
         
 
         <hr />
@@ -46,26 +23,24 @@
             <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
         </footer>
     </div>
-        <div class="right_block_link_line"><div class="right_block_link_l">
-    <div class="right_block_one_link">
-        <a href="https://vk.com/zsuzitor" class="link_standart_for_circle_60_div">VK</a>
+    <div class="right_block_link_l">
+        <div class="right_block_one_link">
+            <a href="https://vk.com/zsuzitor" class="link_standart_for_circle_60_div">VK</a>
 
-    </div>
-    <div class="right_block_one_link">
-        <a href="https://github.com/zsuzitor" class="link_standart_for_circle_60_div">GH</a>
+        </div>
+        <div class="right_block_one_link">
+            <a href="https://github.com/zsuzitor" class="link_standart_for_circle_60_div">GH</a>
 
-    </div>
-    <div class="right_block_one_link">
-        <a href="https://vk.com/zsuzitor" class="link_standart_for_circle_60_div">In</a>
+        </div>
+        <div class="right_block_one_link">
+            <a href="https://vk.com/zsuzitor" class="link_standart_for_circle_60_div">In</a>
 
-    </div>
-    <div class="right_block_one_link">
-        <a href="https://vk.com/zsuzitor" class="link_standart_for_circle_60_div">Im</a>
+        </div>
+        <div class="right_block_one_link">
+            <a href="https://vk.com/zsuzitor" class="link_standart_for_circle_60_div">Im</a>
 
-    </div>
-</div><div class="right_block_link_not_line">
-
-</div></div>      
+        </div>
+    </div> 
     
 
     @Scripts.Render("~/bundles/jquery")

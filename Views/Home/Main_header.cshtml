@@ -1,0 +1,47 @@
+﻿
+
+<div class="main_header_block_all">
+    
+        <div class="main_header_block_lvl_2">
+@if (!string.IsNullOrEmpty(ViewBag.My_id))
+{
+            <div class="main_header_one_block div_inline_block">
+                <div class="main_header_link_1">@Html.ActionLink("Сериалы", "List", "Home", new { what = "Series" }, new { @class = "link_standart_for_div" })</div>
+
+                <div class="main_header_add_button">
+                    @Html.ActionLink(" ", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })
+                </div>
+                <div class="main_header_edit_button">
+                    @Html.ActionLink(" ", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })
+                </div>
+            </div>
+            <div class="main_header_one_block div_inline_block">
+                <div class="main_header_link_1">@Html.ActionLink("Фильмы", "List", "Home", new { what = "Film" }, new { @class = "link_standart_for_div" })</div>
+
+                <div class="main_header_add_button">
+                    @Html.ActionLink(" ", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })
+                </div>
+                <div class="main_header_edit_button">
+                    @Html.ActionLink(" ", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })
+                </div>
+            </div>
+            <div class="main_header_one_block div_inline_block">
+                <div class="main_header_link_1">@Html.ActionLink("Книги", "List", "Home", new { what = "Book" }, new { @class = "link_standart_for_div" })</div>
+
+                <div class="main_header_add_button">@Html.ActionLink(" ", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })</div>
+                <div class="main_header_edit_button">
+                    @Html.ActionLink(" ", "", "Home", new { }, new { @class = "link_standart_for_circle_60_div" })
+                </div>
+            </div>
+}
+        </div>
+
+    
+      @if (string.IsNullOrEmpty(ViewBag.My_id))
+      {
+          Html.Partial("_LoginPartial");
+      }
+
+        <p class="main_header_hello">Добро пожаловать</p>
+   
+</div>
