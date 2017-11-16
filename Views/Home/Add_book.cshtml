@@ -1,0 +1,41 @@
+﻿@model Archive_of_views.Models.Book
+
+@{
+    ViewBag.Title = "Add_book";
+}
+
+<h2>Add_book</h2>
+
+<div>
+    @using (Html.BeginForm("Add_book", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.Label("Картинка")
+    <input type="file" name="uploadImage[0]" /></div>
+    <div>@Html.Label("Название")
+    @Html.EditorFor(x1 => x1.Name)</div>
+    <div>@Html.Label("Второе название")
+    @Html.EditorFor(x1 => x1.Second_name)</div>
+    <div>@Html.Label("Оценка")
+    @Html.EditorFor(x1 => x1.Mark)</div>
+    <div>@Html.Label("Текущая книга")
+    @Html.EditorFor(x1 => x1.Current_book)</div>
+    <div>
+        @Html.Label("Просмотрен")
+        @Html.EditorFor(x1 => x1.Looked)
+    </div>
+    <div>
+        @Html.Label("Комментарий")
+        @Html.EditorFor(x1 => x1.Comment)
+    </div>
+    <div>@Html.Label("Авторы")
+    @Html.EditorFor(x1 => x1.Author_name)</div>
+    <div>@Html.Label("Дата")
+    @Html.EditorFor(x1 => x1.Date)</div>
+   
+
+ 
+
+
+    <input type="submit" class="submit" value="Поделиться" />
+}
+</div>

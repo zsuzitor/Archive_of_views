@@ -6,3 +6,119 @@
 
 <h2>Personal_record</h2>
 
+
+<div>
+    <div><div class="Personal_record_left_block div_inline_block">
+        @if (Model.Series.Count > 0)
+        {
+            <div class="Personal_record_one_column_view div_inline_block">
+                @foreach (var i in Model.Series)
+                {
+                    <div class="Personal_record_one_left_view_block ">
+                        <a href=@Url.Action("Series_view","Home",new {id=i.Id }) class="link_standart_for_div">
+                            <div>
+                                @if (i.Image != null)
+                                {
+                                    <div class="Personal_record_small_img_watch" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(i.Image)) no-repeat;background-size: cover;"></div>
+
+
+                                }
+                                @if (i.Image == null)
+                                {
+                                    <div class="Personal_record_small_img_watch" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
+
+                                }
+
+
+                                <p>@i.Name</p>
+                                <p>@i.Mark</p>
+                            </div>
+                        </a>
+                    </div>
+
+                }
+            </div>
+        }
+    @if (Model.Films.Count > 0)
+    {
+        <div class="Personal_record_one_column_view div_inline_block">
+            @foreach (var i in Model.Films)
+            {
+                <div class="Personal_record_one_left_view_block ">
+                    <a href=@Url.Action("Film_view", "Home",new {id=i.Id }) class="link_standart_for_div">
+                        <div>
+                            @if (i.Image != null)
+                            {
+                                <div class="Personal_record_small_img_watch" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(i.Image)) no-repeat;background-size: cover;"></div>
+
+
+                            }
+                            @if (i.Image == null)
+                            {
+                                <div class="Personal_record_small_img_watch" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
+
+                            }
+
+                            <p>@i.Name</p>
+                            <p>@i.Mark</p>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    }
+    @if (Model.Films.Count > 0)
+    {
+        <div class="Personal_record_one_column_view div_inline_block">
+            @foreach (var i in Model.Books)
+            {
+                <div class="Personal_record_one_left_view_block ">
+                    <a href=@Url.Action("Book_view", "Home",new {id=i.Id }) class="link_standart_for_div">
+                        <div>
+                            @if (i.Image != null)
+                            {
+                                <div class="Personal_record_small_img_watch" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(i.Image)) no-repeat;background-size: cover;"></div>
+
+
+                            }
+                            @if (i.Image == null)
+                            {
+                                <div class="Personal_record_small_img_watch" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
+
+                            }
+
+                            <p>@i.Name</p>
+                            <p>@i.Mark</p>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    }
+
+             
+        </div>
+<div class="Personal_record_right_block div_inline_block">
+    @if (Model.Db.Image != null)
+    {
+        <div class="Personal_record_main_img_div" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(Model.Db.Image) ) no-repeat;background-size: cover;">
+
+
+        </div>
+    }
+    @if (Model.Db.Image == null)
+    {
+        <div class="Personal_record_main_img_div" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;">
+
+
+        </div>
+    }
+    <div>
+        <p>@Model.Db.Nickname</p>
+    </div>
+    <div>@Html.ActionLink("Редактировать","Edit_personal_record","Home",new { })</div>
+</div>
+    </div>
+    
+</div>
+

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Edit_series";
+}
+@using Archive_of_views.Models;
+<h2>Edit_series</h2>
+
+<div>
+    <div></div>
+    @if (ViewBag.page == null)
+    {
+        @Html.Action("List_view_partial", "Home", new { what = "Series", id = ViewBag.person_id, mode = "Edit_series" })
+
+    }
+    
+    @if (ViewBag.page != null)
+    {
+
+    }
+
+
+
+
+</div>

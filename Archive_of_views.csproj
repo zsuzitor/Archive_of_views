@@ -270,6 +270,13 @@
     <Content Include="Views\Home\Film_view.cshtml" />
     <Content Include="Views\Home\Series_view.cshtml" />
     <Content Include="Views\Home\Book_view.cshtml" />
+    <Content Include="Views\Home\Edit_film.cshtml" />
+    <Content Include="Views\Home\Add_film.cshtml" />
+    <Content Include="Views\Home\Add_series.cshtml" />
+    <Content Include="Views\Home\Add_book.cshtml" />
+    <Content Include="Views\Home\Edit_series.cshtml" />
+    <Content Include="Views\Home\Edit_book.cshtml" />
+    <Content Include="Views\Home\List_view_partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

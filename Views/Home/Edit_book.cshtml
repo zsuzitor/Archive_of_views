@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Edit_book";
+}
+
+<h2>Edit_book</h2>
+
+<div>
+    <div></div>
+@if (ViewBag.page == null)
+{
+    @Html.Action("List_view_partial", "Home", new { what = "Book", id = ViewBag.person_id, mode = "Edit_book" })
+}
+
+    @if (ViewBag.page != null)
+    {
+
+    }
+
+
+
+
+</div>

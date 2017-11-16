@@ -1,0 +1,54 @@
+﻿
+@using Archive_of_views.Models;
+
+
+
+
+@{ 
+
+    string action_ = "";
+    if (((string)ViewBag.mode).IndexOf("Edit") != -1)
+    {
+        action_ = ViewBag.mode;
+    }
+    else
+    {
+        action_ = null;
+    }
+
+}
+
+
+<div>
+    @foreach (var i in ((List<List_view_all>)ViewBag.list))
+    {
+        action_= action_ == null ? string.Concat(i.Type, "_view") : action_;
+        <div class="List_one_block div_inline_block">
+            
+            <a href=@Url.Action(action_, "Home",new {id=i.Id }) class="link_standart_for_div">
+                <div>
+                    
+
+                        <div class="List_one_block_img" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(i.Image) ) no-repeat;background-size: cover;">
+                        </div>
+
+                    
+                    <div>
+                        <p>@i.Name</p>
+                        @if (!string.IsNullOrEmpty(i.Second_name))
+                {
+                            <p>@i.Second_name</p>
+                        }
+                        <p>Ваша оценка: @i.Mark</p>
+                        @if (!string.IsNullOrEmpty(i.Author_name))
+                {
+                            <p>@i.Author_name</p>
+                        }
+
+                    </div>
+
+                </div>
+            </a>
+        </div>
+    }
+        </div>

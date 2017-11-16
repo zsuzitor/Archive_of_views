@@ -16,9 +16,9 @@ namespace Archive_of_views.Models
         public List<Series> Series { get; set; }
         public List<Book> Books { get; set; }
 
-        public Person()
+        public Person(ApplicationUser a)
         {
-            Db = null;
+            Db = a;
             Films = new List<Film>();
             Series = new List<Series>();
             Books = new List<Book>();
@@ -42,6 +42,36 @@ namespace Archive_of_views.Models
             Type = "";
             Mark = null;
             Image = null;
+        }
+        public List_view_all(Film film)
+        {
+            Id = film.Id;
+            Name = film.Name;
+            Second_name = film.Second_name;
+            Author_name = film.Author_name;
+            Type = "Film";
+            Mark = film.Mark;
+            Image = film.Image;
+        }
+        public List_view_all(Series film)
+        {
+            Id = film.Id;
+            Name = film.Name;
+            Second_name = "";
+            Author_name = film.Author_name;
+            Type = "Series";
+            Mark = film.Mark;
+            Image = film.Image;
+        }
+        public List_view_all(Book film)
+        {
+            Id = film.Id;
+            Name = film.Name;
+            Second_name = film.Second_name;
+            Author_name = film.Author_name;
+            Type = "Book";
+            Mark = film.Mark;
+            Image = film.Image;
         }
     }
 }

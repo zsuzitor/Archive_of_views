@@ -2,7 +2,7 @@
     
     padding-bottom: 20px;
     /*min-width:960px;*/
-
+    background-color:slategrey;
     padding-top:50px;
 }
 
@@ -25,9 +25,9 @@ select,
 textarea {
     max-width: 280px;
 }
-
-
-.link_standart_for_circle_60_div {
+div.layout_place_bottom {
+    height:100px;
+}.link_standart_for_circle_60_div {
     display: block; /* Ссылка как блочный элемент */
     text-align: center; /* Выравнивание по центру */
     height: 100%; /* Высота на весь слой */
@@ -188,46 +188,46 @@ div.right_block_one_link {
         transition: 2s;
         background-color:green;
     }
-/*div.right_block_link_line {
-    position: fixed;
 
-    height: 2000px;
-    width: 100px;
-    margin-left: 94%;
-    top:0;
-    
-   
-    
+
+    /*List*/
+
+div.List_one_block_img{
+    width:100%;
+    height:180px;
 }
-div.right_block_link_not_line {
-    width: 60px;
-    z-index: 100;
-    background-color: black;
-    height:100%;
-    position:absolute;
-    margin-left:30px;
-}div.right_block_one_link {
-    position: relative;
-    height: 60px;
-    width: 60px;
-    font-size: 30pt;
-    color: black;
-    border: 2px solid black;
-    border-radius: 60px;
-   
-    transition:2s;
-    
-}
-    div.right_block_one_link:hover {
-        margin-left: -30px;
-        transition: 2s;
-    }
-div.right_block_link_l {
-    position: absolute;
-    margin-top:300px;
+div.List_one_block{
+    width:20%;
+    height:300px;
+    margin-left:40px;
 }
 
-div.adasd{
-    height:1000px;
-}*/
+/*Personal_record*/
+div.Personal_record_left_block{
+    width:74%;
+    
+    
+}
+div.Personal_record_right_block {
+    margin-left:4%;
+    width: 20%;
 
+}
+div.Personal_record_main_img_div{
+    border:1px solid black;
+    width:100%;
+    height:200px;
+}
+div.Personal_record_small_img_watch{
+    width:100%;
+    height:200px;
+}
+div.Personal_record_one_left_view_block {
+    height: 200px;
+    margin-left: 5px;
+    margin-top: 50px;
+}
+div.Personal_record_one_column_view{
+    width:30%;
+    
+}

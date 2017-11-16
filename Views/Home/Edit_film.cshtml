@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Edit_film";
+
+}
+@using Archive_of_views.Models;
+
+
+<h2>Edit_film</h2>
+
+
+<div>
+    <div></div>
+@if (ViewBag.page == null)
+{
+   @Html.Action("List_view_partial", "Home", new { what = "Film", id = ViewBag.person_id, mode = "Edit_film" })
+}
+    @if (ViewBag.page != null)
+    {
+
+    }
+
+
+
+
+</div>
+
