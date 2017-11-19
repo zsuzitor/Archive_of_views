@@ -1,0 +1,23 @@
+﻿@model Archive_of_views.Models.Person
+
+@{
+    ViewBag.Title = "Edit_personal_record";
+}
+
+<h2></h2>
+<div>
+    @Html.EditorFor(x1=>x1.Db.Nickname)
+    @using (Html.BeginForm("Add_new_image", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.Hidden("from", "Personal_record")
+       
+
+        <input type="file" name="uploadImage[0]" />
+                        <input type="submit" class="submit" value="Поделиться" />
+    }
+
+</div>
+
+
+
+

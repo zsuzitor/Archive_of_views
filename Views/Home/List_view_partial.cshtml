@@ -15,7 +15,7 @@
     {
         action_ = null;
     }
-
+    
 }
 
 
@@ -28,9 +28,18 @@
             <a href=@Url.Action(action_, "Home",new {id=i.Id }) class="link_standart_for_div">
                 <div>
                     
-
+                    @if (i.Image != null)
+                    {
                         <div class="List_one_block_img" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(i.Image) ) no-repeat;background-size: cover;">
                         </div>
+
+                    }
+                    @if (i.Image == null)
+                    {
+                        <div class="List_one_block_img" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
+
+                    }
+                        
 
                     
                     <div>

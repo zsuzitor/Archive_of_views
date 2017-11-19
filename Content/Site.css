@@ -186,7 +186,7 @@ div.right_block_one_link {
     div.right_block_one_link:hover {
         margin-left: -30px;
         transition: 2s;
-        background-color:green;
+        background-color:black;
     }
 
 
@@ -230,4 +230,37 @@ div.Personal_record_one_left_view_block {
 div.Personal_record_one_column_view{
     width:30%;
     
+}
+
+/*Film_view*/
+div.Film_view_looked_img {
+    height: 100%;
+    width:100%;
+}
+div.Film_view_looked_img_lvl1 {
+    height: 60px;
+    width: 15%;
+    max-width: 60px;
+    float:right;
+}div.Film_view_image_film {
+    height: 250px;
+    width: 100%;
+}
+div.Film_view_left_all_block {
+    width: 60%;
+    text-align: center;
+}
+div.Film_view_right_all_block{
+    width:35%;
+    margin-left:4%;
+}
+div.Film_view_opinion{
+    border:2px solid black;
+}
+div.Film_view_name_film {
+    width: 80%;
+    text-align: left;
+}
+div.Film_view_name_film_lvl_1 {
+    text-align: left;
 }

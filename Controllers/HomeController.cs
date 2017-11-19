@@ -56,10 +56,92 @@ namespace Archive_of_views.Controllers
             
             string check_id=System.Web.HttpContext.Current.User.Identity.GetUserId();
             var res = db.Users.First(x1 => x1.Id == check_id);
-            return View();
+            return View(new Person(res));
         }
+        public ActionResult Add_new_image(HttpPostedFileBase[] uploadImage, string from, string id = "")
+        {
+            var check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            int int_id = -1;
+            try
+            {
+                int_id = Convert.ToInt32(id);
+            }
+            catch { }
 
-        public ActionResult List(string person_id,string what,string search)//string поменять на класс srch  идописать функцию под сортировку
+            switch (from)
+            {
+                case "Film":
+                    {
+                        var pers = db.Films.FirstOrDefault(x1 => x1.Id == int_id);
+                        if (pers != null&&pers.Person_id==check_id)
+                        {
+                            var ph = Get_photo_post(uploadImage);
+                            if (ph != null && ph.Count > 0)
+                                pers.Image = ph[0];
+
+                            db.SaveChanges();
+                        }
+                    }
+                    break;
+                case "Series":
+                    {
+                        var pers = db.Series.FirstOrDefault(x1 => x1.Id == int_id);
+                        if (pers != null && pers.Person_id == check_id)
+                        {
+                            var ph = Get_photo_post(uploadImage);
+                            if (ph != null && ph.Count > 0)
+                                pers.Image = ph[0];
+
+                            db.SaveChanges();
+                        }
+
+                    }
+                    break;
+                case "Book":
+                    {
+                        var pers = db.Books.FirstOrDefault(x1 => x1.Id == int_id);
+                        if (pers != null && pers.Person_id == check_id)
+                        {
+                            var ph = Get_photo_post(uploadImage);
+                            if (ph != null && ph.Count > 0)
+                                pers.Image = ph[0];
+
+                            db.SaveChanges();
+                        }
+                    }
+                    break;
+                case "Season":
+                    {
+                        var pers = db.Seasons.FirstOrDefault(x1 => x1.Id == int_id);
+                        if (pers != null && pers.Person_id == check_id)
+                        {
+                            var ph = Get_photo_post(uploadImage);
+                            if (ph != null && ph.Count > 0)
+                                pers.Image = ph[0];
+
+                            db.SaveChanges();
+                        }
+                    }
+                    break;
+                case "Personal_record":
+                    {
+                        var pers = db.Users.FirstOrDefault(x1 => x1.Id == check_id);
+                        if (pers != null)
+                        {
+                            var ph = Get_photo_post(uploadImage);
+                            if (ph != null && ph.Count > 0)
+                                pers.Image = ph[0];
+
+                            db.SaveChanges();
+                        }
+                    }
+                    break;
+            }
+
+
+            return RedirectToAction("Personal_record", "Home",new { });
+        }
+            public ActionResult List(string person_id,string what,string search)//string поменять на класс srch  идописать функцию под сортировку
         {
             ViewBag.person_id = person_id;
             ViewBag.what = what;
@@ -147,7 +229,9 @@ namespace Archive_of_views.Controllers
         public ActionResult Add_film(HttpPostedFileBase[] uploadImage, Film a)
         {
             string check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            a.Image = Get_photo_post(uploadImage)[0];
+            var ph = Get_photo_post(uploadImage);
+            if (ph != null && ph.Count > 0)
+                a.Image = ph[0];
             a.Person_id = check_id;
             db.Films.Add(a);
             db.SaveChanges();
@@ -165,7 +249,9 @@ namespace Archive_of_views.Controllers
         public ActionResult Add_series(HttpPostedFileBase[] uploadImage, Series a)
         {
             string check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            a.Image = Get_photo_post(uploadImage)[0];
+            var ph = Get_photo_post(uploadImage);
+            if(ph!=null&&ph.Count>0)
+            a.Image = ph[0];
             a.Person_id = check_id;
             db.Series.Add(a);
             db.SaveChanges();
@@ -201,7 +287,9 @@ namespace Archive_of_views.Controllers
         public ActionResult Add_book(HttpPostedFileBase[] uploadImage, Book a)
         {
             string check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            a.Image = Get_photo_post(uploadImage)[0];
+            var ph = Get_photo_post(uploadImage);
+            if (ph != null && ph.Count > 0)
+                a.Image = ph[0];
             a.Person_id = check_id;
             db.Books.Add(a);
             db.SaveChanges();
@@ -213,6 +301,66 @@ namespace Archive_of_views.Controllers
         }
 
         //edit--------------------------------------------------------------------------------------------------
+        public ActionResult Edit_looked(string what,string id,bool click=false)
+        {
+            string check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            int int_id = Convert.ToInt32(id);
+            ViewBag.Looked = false;
+            ViewBag.id = id;
+            switch (what)
+            {
+                case "Film":
+                    {
+                        var ph=db.Films.FirstOrDefault(x1=>x1.Id== int_id);
+                        if(ph!=null)
+                        {
+                            if(click && ph.Person_id == check_id)
+                            ph.Looked = !ph.Looked;
+                            ViewBag.Looked = ph.Looked;
+                        }
+                    }
+                    break;
+                case "Series":
+                    {
+                        var s = db.Series.FirstOrDefault(x1 => x1.Id == int_id );
+                        if (s != null)
+                        {
+                            if (click && s.Person_id == check_id)
+                                s.Looked = !s.Looked;
+                            ViewBag.Looked = s.Looked;
+                        }
+                    }
+                    break;
+                case "Book":
+                    {
+                        var b = db.Books.FirstOrDefault(x1 => x1.Id == int_id );
+                        if (b != null)
+                        {
+                            if (click && b.Person_id == check_id)
+                                b.Looked = !b.Looked;
+                            ViewBag.Looked = b.Looked;
+                        }
+
+                    }
+                    break;
+                case "Season":
+                    {
+                        var s = db.Seasons.FirstOrDefault(x1 => x1.Id == int_id );
+                        if (s != null)
+                        {
+                            if (click && s.Person_id == check_id)
+                                s.Looked = !s.Looked;
+                            ViewBag.Looked = s.Looked;
+                        }
+                    }
+                    break;
+            }
+            db.SaveChanges();
+
+
+
+            return PartialView();
+        }
         public ActionResult Edit_film(string id)
         {
 

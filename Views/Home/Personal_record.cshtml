@@ -8,7 +8,7 @@
 
 
 <div>
-    <div><div class="Personal_record_left_block div_inline_block">
+    <div class="Personal_record_left_block div_inline_block">
         @if (Model.Series.Count > 0)
         {
             <div class="Personal_record_one_column_view div_inline_block">
@@ -116,9 +116,9 @@
     <div>
         <p>@Model.Db.Nickname</p>
     </div>
-    <div>@Html.ActionLink("Редактировать","Edit_personal_record","Home",new { })</div>
+    <div>@Html.ActionLink("Редактировать","Edit_personal_record","Home",new { },new { })</div>
 </div>
-    </div>
+    
     
 </div>
 
