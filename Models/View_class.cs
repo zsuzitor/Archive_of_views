@@ -24,6 +24,19 @@ namespace Archive_of_views.Models
             Books = new List<Book>();
         }
     }
+
+    public class Series_view
+    {
+        public Series Db { get; set; }
+        public List<Season> Seasons { get; set; }
+
+        public Series_view(Series a)
+        {
+            Db = a;
+            Seasons = new List<Season>();
+
+        }
+    }
     public class List_view_all
     {
         public int Id { get; set; }

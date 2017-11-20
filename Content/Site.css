@@ -264,3 +264,131 @@ div.Film_view_name_film {
 div.Film_view_name_film_lvl_1 {
     text-align: left;
 }
+
+
+
+
+/*Book_view*/
+div.Book_view_looked_img {
+    height: 100%;
+    width: 100%;
+}
+
+div.Book_view_looked_img_lvl1 {
+    height: 60px;
+    width: 15%;
+    max-width: 60px;
+    float: right;
+}
+
+div.Book_view_image_book {
+    height: 250px;
+    width: 100%;
+}
+
+div.Book_view_left_all_block {
+    width: 60%;
+    text-align: center;
+}
+
+div.Book_view_right_all_block {
+    width: 35%;
+    margin-left: 4%;
+}
+
+div.Book_view_opinion {
+    border: 2px solid black;
+}
+
+div.Book_view_name_book {
+    width: 80%;
+    text-align: left;
+}
+
+div.Book_view_name_book_lvl_1 {
+    text-align: left;
+}
+
+
+/*Series_view*/
+div.Series_view_looked_img {
+    height: 100%;
+    width: 100%;
+}
+
+div.Series_view_looked_img_lvl1 {
+    height: 60px;
+    width: 15%;
+    max-width: 60px;
+    float: right;
+}
+
+div.Series_view_image_series {
+    height: 250px;
+    width: 100%;
+}
+
+div.Series_view_left_all_block {
+    width: 60%;
+    text-align: center;
+}
+
+div.Series_view_right_all_block {
+    width: 35%;
+    margin-left: 4%;
+}
+
+div.Series_view_opinion {
+    border: 2px solid black;
+}
+
+div.Series_view_name_series {
+    width: 80%;
+    text-align: left;
+}
+
+div.Series_view_name_series_lvl_1 {
+    text-align: left;
+}
+
+
+/*Season_view*/
+div.Season_view_looked_img {
+    height: 100%;
+    width: 100%;
+}
+
+div.Season_view_looked_img_lvl1 {
+    height: 60px;
+    width: 15%;
+    max-width: 60px;
+    float: right;
+}
+
+div.Season_view_image_season {
+    height: 250px;
+    width: 100%;
+}
+
+div.Season_view_left_all_block {
+    width: 60%;
+    text-align: center;
+}
+
+div.Season_view_right_all_block {
+    width: 35%;
+    margin-left: 4%;
+}
+
+div.Season_view_opinion {
+    border: 2px solid black;
+}
+
+div.Season_view_name_season {
+    width: 80%;
+    text-align: left;
+}
+
+div.Season_view_name_season_lvl_1 {
+    text-align: left;
+}

@@ -62,7 +62,7 @@ namespace Archive_of_views.Models
         public string Name { get; set; }
         public string Author_name { get; set; }
         public int Current_season{ get; set; }
-        public int Current_series { get; set; }
+        public int Current_series { get; set; }//серия
         public byte[] Image { get; set; }
         public DateTime? Date { get; set; }
         public string Comment { get; set; }
@@ -103,7 +103,7 @@ namespace Archive_of_views.Models
         }
     }
     
-    public class Book
+        public class Book
     {
         public int Id { get; set; }
         public string Person_id { get; set; }

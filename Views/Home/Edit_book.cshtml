@@ -1,4 +1,4 @@
-﻿
+﻿@model Archive_of_views.Models.Book
 @{
     ViewBag.Title = "Edit_book";
 }
@@ -7,13 +7,76 @@
 
 <div>
     <div></div>
-@if (ViewBag.page == null)
+@if (Model == null)
 {
     @Html.Action("List_view_partial", "Home", new { what = "Book", id = ViewBag.person_id, mode = "Edit_book" })
 }
 
-    @if (ViewBag.page != null)
+    @if (Model != null)
     {
+
+            <div>
+                @using (Html.BeginForm("Edit_book", "Home"))
+                {
+                <div class="Book_view_left_all_block div_inline_block">
+                    <div class="Book_view_name_film_lvl_1">
+                        <div class="Book_view_name_film div_inline_block">
+                            <h1>@Html.EditorFor(x1 => x1.Name)</h1>
+
+                        </div>
+                        <div class="Book_view_looked_img_lvl1 div_inline_block" id="Book_view_looked_replace_id">@Html.Action("Edit_looked", "Home", new { what = "Film", id = Model.Id })</div>
+
+
+
+                    </div>
+                    <div>@Html.EditorFor(x1 => x1.Second_name)</div>
+                    <div>@Html.Label("Авторы:") @Html.EditorFor(x1 => x1.Author_name)</div>
+                    <hr />
+                    <div>@Html.Label("Книга в серии номер:") @Html.EditorFor(x1 => x1.Current_book)</div>
+                    <div class="Book_view_opinion">
+                        <div>@Html.Label("Ваш комментарий:")</div>
+                        <div>@Html.EditorFor(x1 => x1.Comment)</div>
+                        <hr />
+                        <div><h1>@Html.EditorFor(x1 => x1.Mark)/100</h1></div>
+                    </div>
+                </div>
+                
+                <input type="submit" class="submit" value="Сохранить" />
+                }
+                <div class="Book_view_right_all_block div_inline_block">
+
+                    <div>
+                        @if (Model.Image != null)
+                        {
+                            <div class="Book_view_image_film" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(Model.Image)) no-repeat;background-size: cover;"></div>
+
+
+                        }
+                        @if (Model.Image == null)
+                        {
+                            <div class="Book_view_image_film" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
+
+                        }
+
+                    </div>
+
+                    @using (Html.BeginForm("Add_new_image", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.Hidden("from", "Book")
+                        @Html.Hidden("id", Model.Id)
+
+
+                        <input type="file" name="uploadImage[0]" />
+                        <input type="submit" class="submit" value="Поделиться" />
+                    }
+                </div>
+            </div>
+
+
+
+
+            
+
 
     }
 

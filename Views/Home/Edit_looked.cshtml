@@ -1,14 +1,14 @@
 ﻿@if (ViewBag.Looked==true)
             {
     <div class="Film_view_looked_img " id="Film_view_looked_img_id" style="background:url(/Content/images/yep.PNG) no-repeat;background-size: cover;">
-        @Ajax.ActionLink(" ", "Edit_looked", "Home", new { what = "Film", id = ViewBag.id,click=true }, new AjaxOptions { UpdateTargetId = "Film_view_looked_replace_id" }, new { @class = "link_standart_for_div" })
+        @Ajax.ActionLink(" ", "Edit_looked", "Home", new { what = "Film", id = ViewBag.id,click=true }, new AjaxOptions { UpdateTargetId = "_view_looked_replace_id" }, new { @class = "link_standart_for_div" })
     </div>
 
 }
 @if (ViewBag.Looked==false)
             {
     <div class="Film_view_looked_img " id="Film_view_looked_img_id" style="background:url(/Content/images/nope.PNG) no-repeat;background-size: cover;">
-        @Ajax.ActionLink(" ", "Edit_looked", "Home", new { what = "Film", id = ViewBag.id, click = true }, new AjaxOptions { UpdateTargetId = "Film_view_looked_replace_id" }, new { @class = "link_standart_for_div" })
+        @Ajax.ActionLink(" ", "Edit_looked", "Home", new { what = "Film", id = ViewBag.id, click = true }, new AjaxOptions { UpdateTargetId = "_view_looked_replace_id" }, new { @class = "link_standart_for_div" })
 
 
 

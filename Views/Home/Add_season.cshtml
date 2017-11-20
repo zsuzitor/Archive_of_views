@@ -1,0 +1,17 @@
+﻿@model Archive_of_views.Models.Season
+
+
+
+<div>
+    <a href=@Url.Action("Season_view","Home",new {id=Model.Id }) class="link_standart_for_div">
+        <div>
+            @Html.Label(Model.Name)
+            @if (Model.Mark != null)
+            {
+                @Html.Label(Model.Mark.ToString())
+            }
+
+        </div>
+    </a>
+</div>
+

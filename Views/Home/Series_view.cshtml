@@ -1,8 +1,77 @@
-﻿@model Archive_of_views.Models.Series
+﻿@model Archive_of_views.Models.Series_view
 
 @{
     ViewBag.Title = "Series_view";
 }
 
-<h2>Series_view</h2>
+<h2></h2>
 
+<div>
+    <div class="Series_view_left_all_block div_inline_block">
+        <div class="Series_view_name_series_lvl_1">
+            <div class="Series_view_name_film div_inline_block">
+                <h1>@Model.Db.Name</h1>
+
+            </div>
+            <div class="Series_view_looked_img_lvl1 div_inline_block" id="_view_looked_replace_id">@Html.Action("Edit_looked", "Home", new { what = "Series", id = Model.Db.Id })</div>
+
+
+
+        </div>
+        
+        <div>@Html.Label("Авторы:" + Model.Db.Author_name)</div>
+        <hr />
+        <div>@Html.Label("Текущий сезон:" + Model.Db.Current_season)</div>
+        <div>@Html.Label("Текущая серия:" + Model.Db.Current_series)</div>
+        <div>
+            <div>
+                @Ajax.ActionLink("Добавить сезон", "Add_season", "Home", new { id = Model.Db.Id }, new AjaxOptions { UpdateTargetId = "Series_view_season_block", InsertionMode = InsertionMode.InsertAfter }, new { @class = "link_standart_for_div" })
+            </div>
+            <div id="Series_view_season_block">
+                @foreach (var i in Model.Seasons)
+                {
+                    <div>
+                        <a href=@Url.Action("Season_view","Home",new {id=i.Id }) class="link_standart_for_div">
+                            <div>
+                                @Html.Label(i.Name)
+                                @if (i.Mark != null)
+                                {
+                                    @Html.Label(i.Mark.ToString())
+                                }
+
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+
+        </div>
+
+
+
+
+        <div class="Series_view_opinion">
+            <div>@Html.Label("Ваш комментарий:")</div>
+            <div>@Html.Label(Model.Db.Comment)</div>
+            <hr />
+            <div><h1>@Model.Db.Mark.ToString() /100</h1></div>
+        </div>
+    </div>
+    <div class="Series_view_right_all_block div_inline_block">
+
+        <div>
+            @if (Model.Db.Image != null)
+            {
+                <div class="Series_view_image_series" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(Model.Db.Image)) no-repeat;background-size: cover;"></div>
+
+
+            }
+            @if (Model.Db.Image == null)
+            {
+                <div class="Series_view_image_series" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
+
+            }
+            <div>@Html.ActionLink("Редактировать", "Edit_series", "Home", new { }, new { @class = "link_standart_for_div" })</div>
+        </div>
+    </div>
+</div>

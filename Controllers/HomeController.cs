@@ -203,7 +203,7 @@ namespace Archive_of_views.Controllers
         public ActionResult Series_view(string id)
         {
             int int_id = Convert.ToInt32(id);
-            var res = db.Series.First(x1 => x1.Id == int_id);
+            var res =new Series_view(db.Series.First(x1 => x1.Id == int_id));
 
 
             return View(res);
@@ -212,6 +212,23 @@ namespace Archive_of_views.Controllers
         {
             int int_id = Convert.ToInt32(id);
             var res = db.Books.First(x1 => x1.Id == int_id);
+
+
+            return View(res);
+        }
+        public ActionResult Season_view(string id)
+        {
+            Season res = null;
+            int int_id = Convert.ToInt32(id);
+            string check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            
+            if (!string.IsNullOrEmpty(id))
+            {
+                ViewBag.my_page = false;
+                res = db.Seasons.FirstOrDefault(x1 => x1.Id == int_id);
+                if (res.Person_id == check_id)
+                    ViewBag.my_page = true;
+            }
 
 
             return View(res);
@@ -261,12 +278,23 @@ namespace Archive_of_views.Controllers
 
             
         }
-        public ActionResult Add_season()
+        public ActionResult Add_season(string id)
         {
-            var res = new Season();
+            int int_id = Convert.ToInt32(id);
+            string check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            var ser = db.Series.FirstOrDefault(x1=>x1.Id== int_id&&x1.Person_id== check_id);
+            if (ser != null)
+            {
+                var res = new Season() { Person_id=check_id, Series_id=ser.Id };
+                db.Seasons.Add(res);
+                db.SaveChanges();
+
+                return View(res);
+            }
+            
 
 
-            return View(res);
+            return View();
         }
         [HttpPost]
         public ActionResult Add_season( Season a)
@@ -370,8 +398,10 @@ namespace Archive_of_views.Controllers
             {
                 int int_id = Convert.ToInt32(id);
                 var res = db.Films.FirstOrDefault(x1 => x1.Id == int_id && x1.Person_id == check_id);
-                ViewBag.page = res;
-               
+               // ViewBag.page = res;
+                return View(res);
+
+
             }
             
 
@@ -412,8 +442,8 @@ namespace Archive_of_views.Controllers
             {
                 int int_id = Convert.ToInt32(id);
                 var res = db.Books.FirstOrDefault(x1 => x1.Id == int_id && x1.Person_id == check_id);
-                ViewBag.page = res;
-                
+                //ViewBag.page = res;
+                return View(res);
             }
             
             return View();
