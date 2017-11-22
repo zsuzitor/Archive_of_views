@@ -1,0 +1,93 @@
+﻿@model Archive_of_views.Models.Season
+
+@{
+    ViewBag.Title = "Edit_season";
+}
+
+<h2></h2>
+
+<div>
+    <div></div>
+    @if (Model == null)
+    {
+        <h1>Сезон не доступен</h1>
+    }
+    @if (Model != null)
+    {
+
+        <div>
+            @using (Html.BeginForm("Edit_season", "Home"))
+                {
+                <div class="Season_view_left_all_block div_inline_block">
+                    <div class="Season_view_name_season_lvl_1">
+                        <div class="Season_view_name_season div_inline_block">
+                            <h1>@Html.EditorFor(x1 => x1.Name)</h1>
+
+                        </div>
+                        <div class="Season_view_looked_img_lvl1 div_inline_block" id="_view_looked_replace_id">@Html.Action("Edit_looked", "Home", new { what = "Season", id = Model.Id })</div>
+
+
+
+                    </div>
+                    
+                   
+                    <hr />
+                    
+                    <div class="Season_view_opinion">
+                        <div>@Html.Label("Ваш комментарий:")</div>
+                        <div>@Html.EditorFor(x1 => x1.Comment) </div>
+                        <hr />
+                        <div><h1>@Html.EditorFor(x1 => x1.Mark)/100</h1></div>
+                    </div>
+                </div>
+
+                <input type="submit" class="submit" value="Сохранить" />
+            }
+            <div class="Season_view_right_all_block div_inline_block">
+
+                <div>
+                    @if (ViewBag.Image != null)
+                    {
+                        <div class="Season_view_image_season" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(ViewBag.Image)) no-repeat;background-size: cover;"></div>
+
+
+                    }
+                    @if (ViewBag.Image == null)
+                    {
+                        <div class="Season_view_image_season" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
+
+                    }
+
+                </div>
+                @using (Html.BeginForm("Add_new_image", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.Hidden("from", "Season")
+                    @Html.Hidden("id", Model.Id)
+
+
+                    <input type="file" name="uploadImage[0]" />
+                        <input type="submit" class="submit" value="Поделиться" />
+                }
+            </div>
+        </div>
+
+
+    }
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

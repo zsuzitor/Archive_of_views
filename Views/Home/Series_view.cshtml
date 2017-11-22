@@ -71,7 +71,10 @@
                 <div class="Series_view_image_series" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
 
             }
+@if (ViewBag.my_page == true)
+{
             <div>@Html.ActionLink("Редактировать", "Edit_series", "Home", new { }, new { @class = "link_standart_for_div" })</div>
+}
         </div>
     </div>
 </div>

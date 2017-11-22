@@ -1,4 +1,4 @@
-﻿
+﻿@model Archive_of_views.Models.Series
 @{
     ViewBag.Title = "Edit_series";
 }
@@ -7,14 +7,72 @@
 
 <div>
     <div></div>
-    @if (ViewBag.page == null)
+    @if (Model == null)
     {
         @Html.Action("List_view_partial", "Home", new { what = "Series", id = ViewBag.person_id, mode = "Edit_series" })
 
     }
     
-    @if (ViewBag.page != null)
+    @if (Model != null)
     {
+        <div>
+            @using (Html.BeginForm("Edit_series", "Home"))
+                {
+                <div class="Series_view_left_all_block div_inline_block">
+                    <div class="Series_view_name_series_lvl_1">
+                        <div class="Series_view_name_series div_inline_block">
+                            <h1>@Html.EditorFor(x1 => x1.Name)</h1>
+
+                        </div>
+                        <div class="Series_view_looked_img_lvl1 div_inline_block" id="_view_looked_replace_id">@Html.Action("Edit_looked", "Home", new { what = "Series", id = Model.Id })</div>
+
+
+
+                    </div>
+                    
+                    <div>@Html.Label("Авторы:") @Html.EditorFor(x1 => x1.Author_name)</div>
+                    <hr />
+                    <div>@Html.Label("Текущий сезон:") @Html.EditorFor(x1 => x1.Current_season) </div>
+                    <div>@Html.Label("Текущая серия") @Html.EditorFor(x1 => x1.Current_series) </div>
+                    <div class="Series_view_opinion">
+                        <div>@Html.Label("Ваш комментарий:")</div>
+                        <div>@Html.EditorFor(x1 => x1.Comment) </div>
+                        <hr />
+                        <div><h1>@Html.EditorFor(x1 => x1.Mark)/100</h1></div>
+                    </div>
+                </div>
+
+                <input type="submit" class="submit" value="Сохранить" />
+            }
+            <div class="Series_view_right_all_block div_inline_block">
+
+                <div>
+                    @if (ViewBag.Image != null)
+                    {
+                        <div class="Series_view_image_series" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(ViewBag.Image)) no-repeat;background-size: cover;"></div>
+
+
+                    }
+                    @if (ViewBag.Image == null)
+                    {
+                        <div class="Series_view_image_series" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
+
+                    }
+
+                </div>
+                @using (Html.BeginForm("Add_new_image", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.Hidden("from", "Series")
+                    @Html.Hidden("id", Model.Id)
+
+
+                    <input type="file" name="uploadImage[0]" />
+                        <input type="submit" class="submit" value="Поделиться" />
+                }
+            </div>
+        </div>
+
+
 
     }
 

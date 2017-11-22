@@ -44,7 +44,11 @@
                 <div class="Season_view_image_season" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
 
             }
-            <div>@Html.ActionLink("Редактировать", "Edit_season", "Home", new { }, new { @class = "link_standart_for_div" })</div>
+            @if (ViewBag.my_page == true)
+            {
+                <div>@Html.ActionLink("Редактировать", "Edit_season", "Home", new { }, new { @class = "link_standart_for_div" })</div>
+            }
+            
         </div>
     </div>
 </div>

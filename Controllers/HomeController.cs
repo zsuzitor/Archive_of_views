@@ -195,24 +195,45 @@ namespace Archive_of_views.Controllers
         public ActionResult Film_view(string id)
         {
             int int_id = Convert.ToInt32(id);
-            var res = db.Films.First(x1=>x1.Id== int_id);
-
+            string check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            Film res = null;
+            if (!string.IsNullOrEmpty(id))
+            {
+                ViewBag.my_page = false;
+                res = db.Films.FirstOrDefault(x1 => x1.Id == int_id);
+                if (res.Person_id == check_id)
+                    ViewBag.my_page = true;
+            }
 
             return View(res);
         }
         public ActionResult Series_view(string id)
         {
             int int_id = Convert.ToInt32(id);
-            var res =new Series_view(db.Series.First(x1 => x1.Id == int_id));
-
-
+            string check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            Series res = null;
+            if (!string.IsNullOrEmpty(id))
+            {
+                ViewBag.my_page = false;
+                res = db.Series.FirstOrDefault(x1 => x1.Id == int_id);
+                if (res.Person_id == check_id)
+                    ViewBag.my_page = true;
+            }
+   
             return View(res);
         }
         public ActionResult Book_view(string id)
         {
             int int_id = Convert.ToInt32(id);
-            var res = db.Books.First(x1 => x1.Id == int_id);
-
+            string check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            Book res = null;
+            if (!string.IsNullOrEmpty(id))
+            {
+                ViewBag.my_page = false;
+                res = db.Books.FirstOrDefault(x1 => x1.Id == int_id);
+                if (res.Person_id == check_id)
+                    ViewBag.my_page = true;
+            }
 
             return View(res);
         }
@@ -417,8 +438,8 @@ namespace Archive_of_views.Controllers
             {
                 int int_id = Convert.ToInt32(id);
                 var res = db.Series.FirstOrDefault(x1 => x1.Id == int_id && x1.Person_id == check_id);
-                ViewBag.page = res;
-               
+                //ViewBag.page = res;
+                return View(res);
             }
             
 
@@ -428,10 +449,18 @@ namespace Archive_of_views.Controllers
         //TODO см Edit_film
         public ActionResult Edit_season(string id)
         {
-            var res = new Season();
+            
+            var check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            ViewBag.person_id = check_id;
+            if (!string.IsNullOrEmpty(id))
+            {
+                int int_id = Convert.ToInt32(id);
+                var res = db.Seasons.FirstOrDefault(x1 => x1.Id == int_id && x1.Person_id == check_id);
+                //ViewBag.page = res;
+                return View(res);
+            }
 
-
-            return View(res);
+            return View();
         }
         //TODO см Edit_film
         public ActionResult Edit_book(string id)

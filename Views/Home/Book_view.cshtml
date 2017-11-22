@@ -43,7 +43,10 @@
                 <div class="Book_view_image_book" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
 
             }
+@if (ViewBag.my_page == true)
+{
             <div>@Html.ActionLink("Редактировать", "Edit_book", "Home", new { }, new { @class = "link_standart_for_div" })</div>
+}
         </div>
     </div>
 </div>
