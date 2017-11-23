@@ -42,6 +42,7 @@ namespace Archive_of_views.Models
         }
         public Film()
         {
+            Id = 0;
             Person_id = "";
             Name = "";
             Second_name = "";
@@ -52,6 +53,17 @@ namespace Archive_of_views.Models
             Author_name= "";
             Comment = null;
             Looked = false;
+        }
+        public Film Eq_user(Film eq)
+        {
+            Name = eq.Name;
+            Second_name = eq.Second_name;
+            Current_num_film = eq.Current_num_film;
+            Mark = eq.Mark;
+            Author_name = eq.Author_name;
+            Comment = eq.Comment;
+
+            return this;
         }
     }
     
@@ -90,6 +102,7 @@ namespace Archive_of_views.Models
         }
         public Series()
         {
+            Id = 0;
             Looked = false;
             Comment = null;
             Person_id = "";
@@ -100,6 +113,17 @@ namespace Archive_of_views.Models
             Image = null;
             Mark = null;
             Date = null;
+        }
+        public Series Eq_user(Series eq)
+        {
+            Name = eq.Name;
+            Current_season = eq.Current_season;
+            Current_series = eq.Current_series;
+            Mark = eq.Mark;
+            Author_name = eq.Author_name;
+            Comment = eq.Comment;
+
+            return this;
         }
     }
     
@@ -138,6 +162,7 @@ namespace Archive_of_views.Models
         }
         public Book()
         {
+            Id = 0;
             Looked = false;
             Comment = null;
             Person_id = "";
@@ -149,9 +174,21 @@ namespace Archive_of_views.Models
             Image = null;
             Mark = null;
         }
+        public Book Eq_user(Book eq)
+        {
+            Name = eq.Name;
+            Second_name = eq.Second_name;
+            Current_book = eq.Current_book;
+            Mark = eq.Mark;
+            Author_name = eq.Author_name;
+            Comment = eq.Comment;
+
+            return this;
+        }
     }
     public class Season
     {
+        
         public int Id { get; set; }
         public string Person_id { get; set; }
         public byte[] Image { get; set; }
@@ -182,6 +219,7 @@ namespace Archive_of_views.Models
         }
         public Season()
         {
+            Id = 0;
             Looked = false;
             Comment = null;
             Person_id = "";
@@ -189,6 +227,16 @@ namespace Archive_of_views.Models
             Series_id = 0;
             Image = null;
             Mark = null;
+        }
+        public Season Eq_user(Season eq)
+        {
+            Name = eq.Name;
+            
+            Mark = eq.Mark;
+            
+            Comment = eq.Comment;
+
+            return this;
         }
     }
     }

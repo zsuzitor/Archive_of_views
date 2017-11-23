@@ -18,7 +18,11 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-
+.Comment{
+    min-width:100%;
+    min-height:100px;
+    height:200px;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -350,6 +354,12 @@ div.Series_view_name_series {
 div.Series_view_name_series_lvl_1 {
     text-align: left;
 }
+div.Series_view_season_block {
+    border: 1px solid red;
+}
+div.Series_view_one_season:hover {
+    background-color: beige;
+}
 
 
 /*Season_view*/
@@ -392,3 +402,4 @@ div.Season_view_name_season {
 div.Season_view_name_season_lvl_1 {
     text-align: left;
 }
+

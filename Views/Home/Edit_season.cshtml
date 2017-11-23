@@ -15,34 +15,38 @@
     @if (Model != null)
     {
 
-        <div>
-            @using (Html.BeginForm("Edit_season", "Home"))
-                {
-                <div class="Season_view_left_all_block div_inline_block">
-                    <div class="Season_view_name_season_lvl_1">
-                        <div class="Season_view_name_season div_inline_block">
-                            <h1>@Html.EditorFor(x1 => x1.Name)</h1>
+        <div><div class="Season_view_left_all_block div_inline_block">
+    @using (Html.BeginForm("Edit_season", "Home"))
+    {
 
-                        </div>
-                        <div class="Season_view_looked_img_lvl1 div_inline_block" id="_view_looked_replace_id">@Html.Action("Edit_looked", "Home", new { what = "Season", id = Model.Id })</div>
+        <div class="Season_view_name_season_lvl_1">
+            <div class="Season_view_name_season div_inline_block">
+                <h1>Название:@Html.EditorFor(x1 => x1.Name)</h1>
+
+            </div>
+            <div class="Season_view_looked_img_lvl1 div_inline_block" id="_view_looked_replace_id">@Html.Action("Edit_looked", "Home", new { what = "Season", id = Model.Id })</div>
 
 
 
-                    </div>
-                    
-                   
-                    <hr />
-                    
+        </div>
+
+
+        <hr />
+
                     <div class="Season_view_opinion">
                         <div>@Html.Label("Ваш комментарий:")</div>
-                        <div>@Html.EditorFor(x1 => x1.Comment) </div>
+                        <div>
+                            <textarea name="Comment" id="Comment" class="Comment"></textarea>
+                        </div>
                         <hr />
                         <div><h1>@Html.EditorFor(x1 => x1.Mark)/100</h1></div>
                     </div>
-                </div>
 
-                <input type="submit" class="submit" value="Сохранить" />
-            }
+
+                    <input type="submit" class="submit" value="Сохранить" />
+    }
+</div>
+
             <div class="Season_view_right_all_block div_inline_block">
 
                 <div>

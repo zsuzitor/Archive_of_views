@@ -11,7 +11,10 @@
     <div class="Film_view_left_all_block div_inline_block">
         <div class="Film_view_name_film_lvl_1">
             <div class="Film_view_name_film div_inline_block">
-                <h1>@Model.Name</h1>
+                @if (Model.Name != null)
+                {
+                    <h1>@Model.Name</h1>
+                }
 
             </div>
             <div class="Film_view_looked_img_lvl1 div_inline_block" id="_view_looked_replace_id">@Html.Action("Edit_looked", "Home", new { what = "Film", id = Model.Id })</div>
@@ -19,15 +22,37 @@
 
             
         </div>
-        <div>@Html.Label(Model.Second_name)</div>
-        <div>@Html.Label("Авторы:" + Model.Author_name)</div>
+@if (Model.Second_name != null)
+{
+    <div>@Html.Label(Model.Second_name)</div>
+}
+@if (Model.Author_name != null)
+{
+    <div>@Html.Label("Авторы:" + Model.Author_name)</div>
+}
+
+        
         <hr />
         <div>@Html.Label("Фильм в серии номер:"+Model.Current_num_film)</div>
         <div class="Film_view_opinion">
-            <div>@Html.Label("Ваш комментарий:")</div>
-            <div>@Html.Label(Model.Comment)</div>
+            @if (Model.Comment == null)
+            {
+                <div>@Html.Label("Оставьте комментарий")</div>
+            }
+            @if (Model.Comment != null)
+            {
+                <div>@Html.Label("Ваш комментарий:")</div>
+                <div>@Html.Label(Model.Comment)</div>
+            }
             <hr />
+          @if (Model.Mark != null)
+          {
             <div><h1>@Model.Mark.ToString() /100</h1></div>
+          }
+        @if (Model.Mark == null)
+        {
+            <div><h1>@Html.Label("Без оценки")</h1></div>
+        }
         </div>
     </div>
     <div class="Film_view_right_all_block div_inline_block">
@@ -44,7 +69,7 @@
                 <div class="Film_view_image_film" style="background:url(/Content/images/empty_img.PNG) no-repeat;background-size: cover;"></div>
 
             }
-            <div>@Html.ActionLink("Редактировать", "Edit_film","Home",new { },new {@class= "link_standart_for_div" })</div>
+            <div>@Html.ActionLink("Редактировать", "Edit_film","Home",new { id=Model.Id },new {@class= "link_standart_for_div" })</div>
         </div>
     </div>
 </div>

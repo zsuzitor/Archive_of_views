@@ -82,6 +82,7 @@ namespace Archive_of_views.Controllers
                             db.SaveChanges();
                         }
                     }
+                    return RedirectToAction("Film_view", "Home", new {id=id });
                     break;
                 case "Series":
                     {
@@ -96,6 +97,7 @@ namespace Archive_of_views.Controllers
                         }
 
                     }
+                    return RedirectToAction("Series_view", "Home", new { id = id });
                     break;
                 case "Book":
                     {
@@ -109,6 +111,7 @@ namespace Archive_of_views.Controllers
                             db.SaveChanges();
                         }
                     }
+                    return RedirectToAction("Book_view", "Home", new { id = id });
                     break;
                 case "Season":
                     {
@@ -122,6 +125,7 @@ namespace Archive_of_views.Controllers
                             db.SaveChanges();
                         }
                     }
+                    return RedirectToAction("Season_view", "Home", new { id = id });
                     break;
                 case "Personal_record":
                     {
@@ -211,13 +215,17 @@ namespace Archive_of_views.Controllers
         {
             int int_id = Convert.ToInt32(id);
             string check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            Series res = null;
+            Series ser = null;
+            Series_view res=null;
             if (!string.IsNullOrEmpty(id))
             {
                 ViewBag.my_page = false;
-                res = db.Series.FirstOrDefault(x1 => x1.Id == int_id);
-                if (res.Person_id == check_id)
+                ser = db.Series.FirstOrDefault(x1 => x1.Id == int_id);
+                if (ser.Person_id == check_id)
                     ViewBag.my_page = true;
+                res = new Series_view(ser);
+                res.Seasons.AddRange( db.Seasons.Where(x1 => x1.Series_id == int_id));
+
             }
    
             return View(res);
@@ -310,21 +318,14 @@ namespace Archive_of_views.Controllers
                 db.Seasons.Add(res);
                 db.SaveChanges();
 
-                return View(res);
+                return PartialView(res);
             }
             
 
 
-            return View();
+            return PartialView();
         }
-        [HttpPost]
-        public ActionResult Add_season( Season a)
-        {
-            var res = new Season();
-
-
-            return View(res);
-        }
+       
         public ActionResult Add_book()
         {
             var res = new Book();
@@ -356,6 +357,7 @@ namespace Archive_of_views.Controllers
             int int_id = Convert.ToInt32(id);
             ViewBag.Looked = false;
             ViewBag.id = id;
+            ViewBag.what = what;
             switch (what)
             {
                 case "Film":
@@ -429,8 +431,24 @@ namespace Archive_of_views.Controllers
 
             return View();
         }
-        //TODO см Edit_film
-        public ActionResult Edit_series(string id)
+        [HttpPost]
+        public ActionResult Edit_film(Film a)
+        {
+            var check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            try
+            {
+                int int_id = Convert.ToInt32(a.Id);
+                var ph=db.Films.First(x1 => x1.Id == int_id && x1.Person_id == check_id);
+                ph.Eq_user(a);
+                db.SaveChanges();
+
+            }
+            catch { }
+
+            return RedirectToAction("Film_view",new {id=a.Id });
+        }
+            //TODO см Edit_film
+            public ActionResult Edit_series(string id)
         {
             var check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
             ViewBag.person_id = check_id;
@@ -445,6 +463,22 @@ namespace Archive_of_views.Controllers
 
 
             return View();
+        }
+        [HttpPost]
+        public ActionResult Edit_series(Series a)
+        {
+            var check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            try
+            {
+                int int_id = Convert.ToInt32(a.Id);
+                var ph = db.Series.First(x1 => x1.Id == int_id && x1.Person_id == check_id);
+                ph.Eq_user(a);
+                db.SaveChanges();
+
+            }
+            catch { }
+
+            return RedirectToAction("Series_view", new { id = a.Id });
         }
         //TODO см Edit_film
         public ActionResult Edit_season(string id)
@@ -462,6 +496,22 @@ namespace Archive_of_views.Controllers
 
             return View();
         }
+        [HttpPost]
+        public ActionResult Edit_season(Season a)
+        {
+            var check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            try
+            {
+                int int_id = Convert.ToInt32(a.Id);
+                var ph = db.Seasons.First(x1 => x1.Id == int_id && x1.Person_id == check_id);
+                ph.Eq_user(a);
+                db.SaveChanges();
+
+            }
+            catch { }
+
+            return RedirectToAction("Season_view", new { id = a.Id });
+        }
         //TODO см Edit_film
         public ActionResult Edit_book(string id)
         {
@@ -476,6 +526,22 @@ namespace Archive_of_views.Controllers
             }
             
             return View();
+        }
+        [HttpPost]
+        public ActionResult Edit_book(Book a)
+        {
+            var check_id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            try
+            {
+                int int_id = Convert.ToInt32(a.Id);
+                var ph = db.Books.First(x1 => x1.Id == int_id && x1.Person_id == check_id);
+                ph.Eq_user(a);
+                db.SaveChanges();
+
+            }
+            catch { }
+
+            return RedirectToAction("Book_view", new { id = a.Id });
         }
         //delete
         public ActionResult Delete(string id,string what)
