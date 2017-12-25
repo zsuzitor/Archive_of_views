@@ -70,6 +70,7 @@
 
             }
             <div>@Html.ActionLink("Редактировать", "Edit_film","Home",new { id=Model.Id },new {@class= "link_standart_for_div" })</div>
+            <div>@Html.ActionLink("Удалить", "Delete", "Home", new { id = Model.Id, what = "Film" }, new { @class = "link_standart_for_div" })</div>
         </div>
     </div>
 </div>

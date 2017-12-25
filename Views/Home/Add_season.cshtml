@@ -3,7 +3,7 @@
 
 @if (Model != null)
 {
-    <div>
+    <div class="Series_view_one_season">
         <a href=@Url.Action("Season_view","Home",new {id=Model.Id }) class="link_standart_for_div">
             <div>
                 @Html.Label(Model.Name)

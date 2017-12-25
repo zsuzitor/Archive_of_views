@@ -66,6 +66,7 @@
             @if (ViewBag.my_page == true)
             {
                 <div>@Html.ActionLink("Редактировать", "Edit_season", "Home", new { id = Model.Id }, new { @class = "link_standart_for_div" })</div>
+                <div>@Html.ActionLink("Удалить", "Delete", "Home", new { id = Model.Id, what = "Season" }, new { @class = "link_standart_for_div" })</div>
             }
             
         </div>

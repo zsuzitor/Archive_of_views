@@ -556,6 +556,7 @@ namespace Archive_of_views.Controllers
                         if (del != null)
                         {
                             db.Films.Remove(del);
+                            db.SaveChanges();
                         }
                     }
                     break;
@@ -567,6 +568,7 @@ namespace Archive_of_views.Controllers
                         {
                             db.Series.Remove(del);
                             db.Seasons.RemoveRange(db.Seasons.Where(x1 => x1.Series_id == int_id&&x1.Person_id==check_id));
+                            db.SaveChanges();
                         }
                         
                     }
@@ -578,6 +580,7 @@ namespace Archive_of_views.Controllers
                         if (del != null)
                         {
                             db.Books.Remove(del);
+                            db.SaveChanges();
                         }
                     }
                     break;
@@ -588,6 +591,7 @@ namespace Archive_of_views.Controllers
                         if (del != null)
                         {
                             db.Seasons.Remove(del);
+                            db.SaveChanges();
                         }
                     }
                     break;
@@ -599,7 +603,7 @@ namespace Archive_of_views.Controllers
             }
 
 
-            return View();
+            return RedirectToAction("Personal_record",new { }) ;
         }
 
 
